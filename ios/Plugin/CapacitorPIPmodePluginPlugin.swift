@@ -17,6 +17,7 @@ public class CapacitorPIPmodePluginPlugin: CAPPlugin {
     }
 
     @objc func enablePipMode(_ call: CAPPluginCall) {
+        let value = call.getString("value") ?? ""
         call.resolve([
             "value": implementation.echo(value)
         ])
