@@ -1,6 +1,5 @@
 import Foundation
 import Capacitor
-import AVKit
 
 /**
  * Please read the Capacitor iOS Plugin Development Guide
@@ -18,16 +17,9 @@ public class CapacitorPIPmodePluginPlugin: CAPPlugin {
     }
 
     @objc func enablePipMode(_ call: CAPPluginCall) {
-        let player = AVPlayer()
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        playerViewController.allowsPictureInPicturePlayback = true
-        DispatchQueue.main.async {
-            self.bridge.viewController.preset(playerViewController, animated: true){
-                playerViewController.canStartPictureInPictureAutomaticallyFromInline = true
-            }
-        }
-        call.success()
+        call.resolve([
+            "value": implementation.echo(value)
+        ])
     }
 
     @objc func isPipModeEnabled(_ call: CAPPluginCall) {
