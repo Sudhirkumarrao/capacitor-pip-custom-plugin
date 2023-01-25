@@ -8,7 +8,6 @@ import Capacitor
 @objc(CapacitorPIPmodePluginPlugin)
 public class CapacitorPIPmodePluginPlugin: CAPPlugin {
     private let implementation = CapacitorPIPmodePlugin()
-    var pipController: PIPViewController?
     
     
     @objc func echo(_ call: CAPPluginCall) {
